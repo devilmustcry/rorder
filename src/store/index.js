@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import { firebaseMutations, firebaseAction } from 'vuexfire'
 import firebase from 'firebase'
 import router from '../router'
+import moment from 'moment'
 
 let config = {
   apiKey: 'AIzaSyCRwgWRdIUz3eILS_uI-JGktIK6cs0wAKY',
@@ -128,7 +129,8 @@ export default new Vuex.Store({
         restaurantName: formData.restaurantName,
         createBy: state.user,
         style: Math.floor((Math.random() * 5) + 1),
-        createAt: Date.now()
+        createAt: Date.now(),
+        validUntil: moment(formData.closedDate, 'D/M/YYYY H:mm').format('x')
         // menus: formData.menus.map(menu => {
         //   return {
         //     status: '',

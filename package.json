@@ -17,10 +17,12 @@
   },
   "dependencies": {
     "buefy": "^0.5.4",
+    "element-ui": "^1.4.6",
     "firebase": "^3.9.0",
     "moment": "^2.19.1",
     "targaryen": "^3.0.3",
     "vue": "^2.2.6",
+    "vue-flatpickr-component": "^4.0.0",
     "vue-router": "^2.3.1",
     "vuex": "^2.3.1",
     "vuex-router-sync": "^4.1.2",

@@ -28,6 +28,19 @@
         </p>
       </div>
     </div>
+    <div class="field">
+      <label class="label">
+        Valid Until
+      </label>
+      <flat-pickr
+          v-model="formData.closedDate"
+          placeholder="Select date"
+          :config="configTimePicker"
+          :required="true"                
+          input-class="form-control custom-input-class"                
+          name="date">
+      </flat-pickr>
+    </div>
 
     <br>
 
@@ -38,15 +51,24 @@
 
 <script>
 import { mapActions } from 'vuex'
+import flatPickr from 'vue-flatpickr-component'
+import 'flatpickr/dist/flatpickr.css'
 
 export default {
   data () {
     return {
+      configTimePicker: {
+        disableMobile: true,
+        enableTime: true,
+        time_24hr: true,
+        dateFormat: 'd/m/Y H:i'
+      },
       formData: {
         restaurantName: '',
         menus: [{
           menu: ''
-        }]
+        }],
+        closedDate: ''
       }
     }
   },
@@ -60,6 +82,9 @@ export default {
     removeMenuAtIndex (index) {
       this.formData.menus.splice(index, 1)
     }
+  },
+  components: {
+    flatPickr
   }
 }
 </script>

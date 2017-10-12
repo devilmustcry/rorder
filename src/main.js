@@ -8,9 +8,12 @@ import { sync } from 'vuex-router-sync'
 import Buefy from 'buefy'
 import 'buefy/lib/buefy.css'
 
+// import locale from 'element-ui/lib/locale/lang/en'
+
 sync(store, router)
 
 Vue.use(Buefy)
+// Vue.use(ElementUI, {locale})
 
 Vue.config.productionTip = false
 
