@@ -130,7 +130,7 @@ export default new Vuex.Store({
         createBy: state.user,
         style: Math.floor((Math.random() * 5) + 1),
         createAt: Date.now(),
-        validUntil: moment(formData.closedDate, 'D/M/YYYY H:mm').format('x')
+        validUntil: parseInt(moment(formData.closedDate, 'D/M/YYYY H:mm').format('x'))
         // menus: formData.menus.map(menu => {
         //   return {
         //     status: '',
