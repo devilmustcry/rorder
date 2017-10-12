@@ -1,6 +1,7 @@
 <template lang="html">
   <div @click="cardOnClick()" :class="'order gradient-' + preOrder.style">
-    <h1 class="subtitle is-4">{{ preOrder.restaurantName }}</h1>
+    <h1 class="subtitle is-5">{{ preOrder.restaurantName }}</h1>
+    <h3 class="subtitle is-6">Created at : {{formatCreatedDate}}</h3>
     <h2 class="order-count subtitle is-3">
       x {{ calSum(preOrder) }}
     </h2>
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   props: ['preOrder'],
   methods: {
@@ -29,6 +31,11 @@ export default {
       } else {
         return 0
       }
+    }
+  },
+  computed: {
+    formatCreatedDate () {
+      return moment(new Date(this.preOrder.createAt)).format('DD-MMM-YYYY')
     }
   }
 }
